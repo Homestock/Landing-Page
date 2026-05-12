@@ -26,3 +26,26 @@ html, body {
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 24px;
 }
+
+/* Long-form legal pages */
+.legal-prose h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #FFFFFF;
+}
+.legal-prose h3 {
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
+  font-size: 17px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.92);
+}
+.legal-prose p { margin-bottom: 1rem; }
+.legal-prose ul { margin: 0.5rem 0 1.25rem 1.25rem; list-style: disc; }
+.legal-prose ul li { margin-bottom: 0.4rem; }
+.legal-prose a { color: #66B2FF; }
+.legal-prose a:hover { color: #8FC6FF; }
+.legal-prose strong { color: #FFFFFF; font-weight: 600; }

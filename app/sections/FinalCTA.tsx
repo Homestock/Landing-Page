@@ -28,11 +28,12 @@ export function FinalCTA() {
         </Reveal>
         <Reveal className="mt-20 border-t border-white/10 pt-6" stagger={0.05} delayChildren={0.2}>
           <R>
-            <div className="flex flex-col items-center justify-between gap-3 md:flex-row">
-              <div className="flex items-center gap-6">
-                <span className="text-[15px] font-bold text-white">HomeStock</span>
-                <a className="text-[13px] text-white/50 hover:text-white" href="/privacy">Privacy</a>
-                <a className="text-[13px] text-white/50 hover:text-white" href="/support">Support</a>
+            <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+              <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/homestock-logo.svg" alt="HomeStock" className="h-6 w-auto" />
+                <a className="text-[13px] text-white/50 hover:text-white" href="/privacy">Privacy Policy</a>
+                <a className="text-[13px] text-white/50 hover:text-white" href="/terms">Terms of Use</a>
                 <a className="text-[13px] text-white/50 hover:text-white" href="mailto:support@homestock.app">support@homestock.app</a>
               </div>
               <span className="text-xs text-white/40">© 2026 HomeStock. Made for iPhone.</span>
