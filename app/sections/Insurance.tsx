@@ -1,0 +1,54 @@
+import { Container } from '@/components/Container';
+import { Eyebrow } from '@/components/Eyebrow';
+
+const items = [
+  ['MacBook Pro 16"', 'Electronics · Office · #C02', '$2,499'],
+  ['Samsung TV 55"', 'Electronics · Living Room', '$799'],
+  ['KitchenAid Mixer', 'Appliances · Kitchen', '$449'],
+  ['Sonos Arc', 'Electronics · Living Room', '$899'],
+];
+
+export function Insurance() {
+  return (
+    <section className="relative overflow-hidden bg-deep py-32">
+      <div className="blob" style={{ width: 600, height: 600, top: 100, left: -100, background: '#6B9E80', opacity: 0.20 }} />
+
+      <Container className="relative grid grid-cols-12 items-center gap-8">
+        <div className="col-span-12 flex justify-center md:col-span-6">
+          <div className="w-[380px] max-w-full rounded-2xl border border-white/8 bg-[#1A1A1F] p-7 shadow-[0_30px_80px_-10px_rgba(0,0,0,0.5)]">
+            <div className="flex items-center gap-3">
+              <div className="h-10 w-8 rounded bg-rose" />
+              <div>
+                <div className="text-sm font-semibold text-white">home-inventory.pdf</div>
+                <div className="text-[11px] text-white/50">47 items · $34,219 · Apr 2026</div>
+              </div>
+            </div>
+            <div className="mt-3.5 border-t border-white/8" />
+            {items.map((it, i) => (
+              <div key={i} className="flex items-center gap-3 py-3">
+                <div className="flex-1">
+                  <div className="text-[13px] font-semibold text-white/90">{it[0]}</div>
+                  <div className="text-[11px] text-white/50">{it[1]}</div>
+                </div>
+                <div className="text-[13px] font-semibold text-white">{it[2]}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="col-span-12 md:col-span-6 md:pl-12">
+          <Eyebrow label="INSURANCE-READY" dotColor="#6B9E80" />
+          <h2 className="mt-5 text-[48px] font-bold leading-[1.02] tracking-tighter3 md:text-[64px]">
+            The receipt<br />you&apos;ll never lose.
+          </h2>
+          <p className="mt-6 max-w-md text-lg leading-[1.6] text-white/70">
+            Photos, prices, dates, serial numbers.
+            Export everything as PDF, ready for any insurance form.
+            <br /><br />
+            Warranty expiring in 30 days? You&apos;ll know before they do.
+          </p>
+        </div>
+      </Container>
+    </section>
+  );
+}
