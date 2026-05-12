@@ -65,12 +65,12 @@ export function Hero() {
 
         {/* Right: phone with floating chips */}
         <motion.div
-          className="col-span-12 md:col-span-5"
+          className="relative col-span-12 md:col-span-5"
           initial={{ opacity: 0, scale: 0.95, y: 30 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
         >
-          <Float amp={6} dur={6} className="relative mx-auto" >
+          <Float amp={6} dur={6} className="relative mx-auto" style={{ width: 340 }}>
             <div className="relative mx-auto" style={{ width: 340, height: 700 }}>
               <div
                 className="pointer-events-none absolute"
@@ -125,12 +125,12 @@ export function Hero() {
             </div>
           </Float>
 
-          {/* Floating chips — overlaid on parent, each with own float rhythm */}
-          <div className="pointer-events-none absolute inset-0">
-            <Float amp={10} dur={5} delay={0.2} className="absolute" style={{ left: 'calc(50% - 280px)', top: 220 }}>
+          {/* Floating chips — same width box as the phone, centered with mx-auto, so left/right offsets are relative to the phone */}
+          <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2" style={{ width: 340, height: 700 }}>
+            <Float amp={10} dur={5} delay={0.2} className="pointer-events-auto absolute" style={{ left: -140, top: 180 }}>
               <motion.div
                 initial={{ opacity: 0, x: -30, rotate: -10 }}
-                animate={{ opacity: 1, x: 0, rotate: -2 }}
+                animate={{ opacity: 1, x: 0, rotate: -4 }}
                 transition={{ duration: 0.9, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
                 className="flex items-center gap-3.5 rounded-2xl bg-white px-5 py-4 shadow-[0_24px_60px_rgba(0,0,0,0.50)]"
               >
@@ -142,10 +142,10 @@ export function Hero() {
               </motion.div>
             </Float>
 
-            <Float amp={8} dur={5.5} delay={0.5} className="absolute" style={{ left: 'calc(50% - 250px)', top: 460 }}>
+            <Float amp={8} dur={5.5} delay={0.5} className="pointer-events-auto absolute" style={{ left: -110, top: 400 }}>
               <motion.div
                 initial={{ opacity: 0, x: -30, rotate: 8 }}
-                animate={{ opacity: 1, x: 0, rotate: 1 }}
+                animate={{ opacity: 1, x: 0, rotate: 2 }}
                 transition={{ duration: 0.9, delay: 1.1, ease: [0.16, 1, 0.3, 1] }}
                 className="rounded-2xl bg-white px-4 py-3 shadow-[0_24px_60px_rgba(0,0,0,0.50)]"
               >
@@ -158,10 +158,10 @@ export function Hero() {
               </motion.div>
             </Float>
 
-            <Float amp={12} dur={6} delay={0.8} className="absolute" style={{ left: 'calc(50% + 80px)', top: 500 }}>
+            <Float amp={12} dur={6} delay={0.8} className="pointer-events-auto absolute" style={{ right: -140, top: 480 }}>
               <motion.div
                 initial={{ opacity: 0, x: 30, rotate: 12 }}
-                animate={{ opacity: 1, x: 0, rotate: 3 }}
+                animate={{ opacity: 1, x: 0, rotate: 4 }}
                 transition={{ duration: 0.9, delay: 1.3, ease: [0.16, 1, 0.3, 1] }}
                 className="flex items-center gap-3.5 rounded-2xl bg-white px-5 py-4 shadow-[0_24px_60px_rgba(0,0,0,0.50)]"
               >

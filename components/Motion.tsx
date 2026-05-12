@@ -68,16 +68,19 @@ export function Float({
   amp = 8,
   dur = 4,
   delay = 0,
+  style,
 }: {
   children: ReactNode;
   className?: string;
   amp?: number;
   dur?: number;
   delay?: number;
+  style?: React.CSSProperties;
 }) {
   return (
     <motion.div
       className={className}
+      style={style}
       animate={{ y: [0, -amp, 0] }}
       transition={{ duration: dur, repeat: Infinity, ease: 'easeInOut', delay }}
     >
@@ -92,15 +95,18 @@ export function Drift({
   className = '',
   range = 30,
   dur = 14,
+  style,
 }: {
   children: ReactNode;
   className?: string;
   range?: number;
   dur?: number;
+  style?: React.CSSProperties;
 }) {
   return (
     <motion.div
       className={className}
+      style={style}
       animate={{ x: [0, range, -range / 2, 0], y: [0, -range / 2, range, 0] }}
       transition={{ duration: dur, repeat: Infinity, ease: 'easeInOut' }}
     >
