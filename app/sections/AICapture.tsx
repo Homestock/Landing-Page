@@ -36,12 +36,71 @@ export function AICapture() {
 
         <div className="relative col-span-12 flex justify-center md:col-span-6 md:justify-end">
           <Float amp={6} dur={6}>
-            <PhoneMockup width={360} height={700} glow="rgba(0,122,255,0.4)">
-              <div className="flex h-full items-center justify-center text-xs text-ink-faint">[ AI Capture flow ]</div>
+            <PhoneMockup width={340} height={700} glow="rgba(0,122,255,0.4)">
+              <div className="flex h-full flex-col px-4 pt-12">
+                {/* Top nav */}
+                <div className="flex items-center justify-between text-[12px]">
+                  <span className="text-deep/55">‹ Cancel</span>
+                  <span className="font-semibold text-deep">New Item</span>
+                  <span className="font-semibold text-accent">Save</span>
+                </div>
+
+                {/* Photo */}
+                <div className="relative mt-3 overflow-hidden rounded-2xl" style={{ width: '100%', height: 170, background: 'linear-gradient(135deg, #2C2E36 0%, #45474F 60%, #5A5D67 100%)' }}>
+                  {/* MacBook silhouette */}
+                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" style={{ width: 130, height: 80, background: '#1A1B20', borderRadius: 6, boxShadow: '0 6px 20px rgba(0,0,0,0.4)' }} />
+                  <div className="absolute left-1/2 -translate-x-1/2" style={{ bottom: 32, width: 145, height: 5, background: '#A8AAB2', borderRadius: 2 }} />
+                  {/* AI scanning indicator */}
+                  <div className="absolute right-2.5 top-2.5 flex items-center gap-1.5 rounded-full bg-black/55 px-2 py-1 backdrop-blur">
+                    <span className="block h-1.5 w-1.5 animate-pulse rounded-full bg-violet" />
+                    <span className="text-[9px] font-semibold tracking-wider text-white">AI · 2.4s</span>
+                  </div>
+                </div>
+
+                {/* AI suggestion banner */}
+                <div className="mt-3 flex items-center gap-2 rounded-xl bg-violet/10 px-3 py-2">
+                  <div className="h-4 w-4 rounded bg-violet" />
+                  <span className="text-[11px] font-semibold text-violet">AI filled 4 fields for you</span>
+                </div>
+
+                {/* Form fields */}
+                <div className="mt-3 space-y-2.5">
+                  <div>
+                    <div className="text-[9px] font-semibold uppercase tracking-wider text-deep/40">Name</div>
+                    <div className="mt-0.5 text-[14px] font-semibold text-deep">MacBook Pro 16&quot;</div>
+                  </div>
+                  <div className="h-px bg-deep/8" />
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <div className="text-[9px] font-semibold uppercase tracking-wider text-deep/40">Category</div>
+                      <div className="mt-0.5 text-[13px] font-medium text-deep">Electronics</div>
+                    </div>
+                    <div className="rounded-full bg-accent/10 px-2 py-0.5 text-[9px] font-bold tracking-wider text-accent">AUTO</div>
+                  </div>
+                  <div className="h-px bg-deep/8" />
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <div className="text-[9px] font-semibold uppercase tracking-wider text-deep/40">Room</div>
+                      <div className="mt-0.5 text-[13px] font-medium text-deep">Office</div>
+                    </div>
+                    <div className="rounded-full bg-accent/10 px-2 py-0.5 text-[9px] font-bold tracking-wider text-accent">AUTO</div>
+                  </div>
+                  <div className="h-px bg-deep/8" />
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <div className="text-[9px] font-semibold uppercase tracking-wider text-deep/40">Estimated price</div>
+                      <div className="mt-0.5 text-[13px] font-medium text-deep">$2,499</div>
+                    </div>
+                    <div className="rounded-full bg-accent/10 px-2 py-0.5 text-[9px] font-bold tracking-wider text-accent">AUTO</div>
+                  </div>
+                </div>
+              </div>
             </PhoneMockup>
           </Float>
-          <Float amp={10} dur={5} delay={0.5} className="absolute -left-2 top-1/3">
-            <div className="rounded-2xl bg-white px-4 py-3 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+
+          {/* Floating AI captured chip — overlaid to the left of the phone */}
+          <Float amp={10} dur={5} delay={0.5} className="absolute" style={{ left: -20, top: 220 }}>
+            <div className="rounded-2xl bg-white px-4 py-3 shadow-[0_24px_60px_rgba(0,0,0,0.55)]" style={{ transform: 'rotate(-3deg)' }}>
               <div className="mb-1.5 flex items-center gap-2">
                 <div className="h-4 w-4 rounded bg-violet" />
                 <span className="text-[10px] font-semibold tracking-[0.14em] text-violet">AI CAPTURED · 2.4s</span>
