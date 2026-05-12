@@ -1,5 +1,9 @@
+'use client';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Container } from '@/components/Container';
 import { Eyebrow } from '@/components/Eyebrow';
+import { Reveal, R } from '@/components/Motion';
 
 const qa = [
   ['Does HomeStock work offline?', 'Yes. Adding and viewing items works offline. Sync resumes when you reconnect.'],
@@ -11,22 +15,43 @@ const qa = [
 ];
 
 export function FAQ() {
+  const [open, setOpen] = useState<number | null>(0);
   return (
     <section id="faq" className="relative overflow-hidden bg-deep py-28">
-      <Container className="text-center">
-        <div className="inline-flex">
-          <Eyebrow label="FAQ" dotColor="#948F99" />
-        </div>
-        <h2 className="mt-6 text-[48px] font-bold tracking-tighter2 md:text-[56px]">Quick answers.</h2>
-
-        <div className="mx-auto mt-12 max-w-3xl space-y-3">
-          {qa.map(([q, a]) => (
-            <div key={q} className="rounded-2xl border border-white/8 bg-white/[0.03] p-6 text-left">
-              <div className="text-base font-semibold text-white">{q}</div>
-              <div className="mt-1.5 text-sm leading-[1.6] text-white/60">{a}</div>
-            </div>
+      <Container>
+        <Reveal className="text-center" stagger={0.10}>
+          <R><div className="inline-flex"><Eyebrow label="FAQ" dotColor="#948F99" /></div></R>
+          <R><h2 className="mt-6 text-[48px] font-bold tracking-tighter2 md:text-[56px]">Quick answers.</h2></R>
+        </Reveal>
+        <Reveal className="mx-auto mt-12 max-w-3xl space-y-3" stagger={0.05} delayChildren={0.15}>
+          {qa.map(([q, a], i) => (
+            <R key={q}>
+              <motion.div
+                whileHover={{ borderColor: 'rgba(255,255,255,0.20)' }}
+                className="cursor-pointer rounded-2xl border border-white/8 bg-white/[0.03] p-6 text-left"
+                onClick={() => setOpen(open === i ? null : i)}
+              >
+                <div className="flex items-center justify-between">
+                  <div className="text-base font-semibold text-white">{q}</div>
+                  <motion.span animate={{ rotate: open === i ? 45 : 0 }} className="text-xl text-white/50">+</motion.span>
+                </div>
+                <AnimatePresence initial={false}>
+                  {open === i && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                      style={{ overflow: 'hidden' }}
+                    >
+                      <div className="mt-3 text-sm leading-[1.6] text-white/60">{a}</div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            </R>
           ))}
-        </div>
+        </Reveal>
       </Container>
     </section>
   );
