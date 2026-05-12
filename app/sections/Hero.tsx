@@ -66,9 +66,9 @@ export function Hero() {
         {/* Right: phone with floating chips */}
         <motion.div
           className="relative col-span-12 md:col-span-5"
-          initial={{ opacity: 0, scale: 0.95, y: 30 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+          initial={{ opacity: 0, scale: 0.95, y: 30, filter: 'blur(20px)' }}
+          animate={{ opacity: 1, scale: 1, y: 0, filter: 'blur(0px)' }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
         >
           <Float amp={6} dur={6} className="relative mx-auto" style={{ width: 340 }}>
             <div className="relative mx-auto" style={{ width: 340, height: 700 }}>
@@ -106,9 +106,9 @@ export function Hero() {
                         <motion.div
                           key={i}
                           className="flex items-center gap-3 rounded-xl bg-[#F2F2F0] p-2.5"
-                          initial={{ opacity: 0, x: -10 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.5, delay: 0.6 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                          initial={{ opacity: 0, x: -10, filter: 'blur(8px)' }}
+                          animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
+                          transition={{ duration: 0.6, delay: 0.6 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
                         >
                           <div className="h-9 w-9 rounded-lg" style={{ background: r.c }} />
                           <div className="flex-1">
@@ -129,9 +129,9 @@ export function Hero() {
           <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2" style={{ width: 340, height: 700 }}>
             <Float amp={10} dur={5} delay={0.2} className="pointer-events-auto absolute" style={{ left: -140, top: 180 }}>
               <motion.div
-                initial={{ opacity: 0, x: -30, rotate: -10 }}
-                animate={{ opacity: 1, x: 0, rotate: -4 }}
-                transition={{ duration: 0.9, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
+                initial={{ opacity: 0, x: -30, rotate: -10, filter: 'blur(16px)' }}
+                animate={{ opacity: 1, x: 0, rotate: -4, filter: 'blur(0px)' }}
+                transition={{ duration: 1.0, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
                 className="flex items-center gap-3.5 rounded-2xl bg-white px-5 py-4 shadow-[0_24px_60px_rgba(0,0,0,0.50)]"
               >
                 <div className="h-12 w-12 rounded-xl bg-accent" />
@@ -144,9 +144,9 @@ export function Hero() {
 
             <Float amp={8} dur={5.5} delay={0.5} className="pointer-events-auto absolute" style={{ left: -110, top: 400 }}>
               <motion.div
-                initial={{ opacity: 0, x: -30, rotate: 8 }}
-                animate={{ opacity: 1, x: 0, rotate: 2 }}
-                transition={{ duration: 0.9, delay: 1.1, ease: [0.16, 1, 0.3, 1] }}
+                initial={{ opacity: 0, x: -30, rotate: 8, filter: 'blur(16px)' }}
+                animate={{ opacity: 1, x: 0, rotate: 2, filter: 'blur(0px)' }}
+                transition={{ duration: 1.0, delay: 1.1, ease: [0.16, 1, 0.3, 1] }}
                 className="rounded-2xl bg-white px-4 py-3 shadow-[0_24px_60px_rgba(0,0,0,0.50)]"
               >
                 <div className="flex items-center gap-2">
@@ -160,9 +160,9 @@ export function Hero() {
 
             <Float amp={12} dur={6} delay={0.8} className="pointer-events-auto absolute" style={{ right: -140, top: 480 }}>
               <motion.div
-                initial={{ opacity: 0, x: 30, rotate: 12 }}
-                animate={{ opacity: 1, x: 0, rotate: 4 }}
-                transition={{ duration: 0.9, delay: 1.3, ease: [0.16, 1, 0.3, 1] }}
+                initial={{ opacity: 0, x: 30, rotate: 12, filter: 'blur(16px)' }}
+                animate={{ opacity: 1, x: 0, rotate: 4, filter: 'blur(0px)' }}
+                transition={{ duration: 1.0, delay: 1.3, ease: [0.16, 1, 0.3, 1] }}
                 className="flex items-center gap-3.5 rounded-2xl bg-white px-5 py-4 shadow-[0_24px_60px_rgba(0,0,0,0.50)]"
               >
                 <div className="h-12 w-12 rounded-xl bg-amber" />

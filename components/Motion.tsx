@@ -35,16 +35,18 @@ export function Reveal({
   );
 }
 
-// Child item that fades up
+// Child item that fades up + blurs in
 export function R({
   children,
   className = '',
   y = 24,
+  blur = 14,
   as: As = 'div',
 }: {
   children: ReactNode;
   className?: string;
   y?: number;
+  blur?: number;
   as?: keyof JSX.IntrinsicElements;
 }) {
   const MotionAs = motion[As as keyof typeof motion] as React.ComponentType<HTMLMotionProps<'div'>>;
@@ -52,8 +54,13 @@ export function R({
     <MotionAs
       className={className}
       variants={{
-        hidden: { opacity: 0, y },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: EXPO_OUT } },
+        hidden: { opacity: 0, y, filter: `blur(${blur}px)` },
+        visible: {
+          opacity: 1,
+          y: 0,
+          filter: 'blur(0px)',
+          transition: { duration: 0.9, ease: EXPO_OUT },
+        },
       }}
     >
       {children}
