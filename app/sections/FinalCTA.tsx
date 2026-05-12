@@ -12,7 +12,7 @@ export function FinalCTA() {
       </Drift>
       <Container className="relative">
         <Reveal className="text-center" stagger={0.10}>
-          <R><h2 className="mx-auto max-w-3xl text-[64px] font-bold leading-[1.02] tracking-tighter3 md:text-[80px]">Your home is<br />more than walls.</h2></R>
+          <R><h2 className="mx-auto max-w-3xl text-[44px] font-bold leading-[1.02] tracking-tighter3 sm:text-[56px] md:text-[80px]">Your home is<br />more than walls.</h2></R>
           <R><p className="mt-6 text-xl text-white/70">Start indexing it. One photo at a time.</p></R>
           <R>
             <motion.a
@@ -33,7 +33,7 @@ export function FinalCTA() {
               <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
                 <Link href="/" aria-label="HomeStock" className="flex items-center">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/homestock-logo.svg" alt="HomeStock" className="h-6 w-auto" />
+                  <img src="/homestock-logo.svg" alt="HomeStock" className="h-12 w-auto md:h-14" />
                 </Link>
                 <Link className="text-[13px] text-white/50 transition hover:text-white" href="/privacy">
                   Privacy Policy

@@ -21,7 +21,7 @@ export function LegalLayout({
         <Container className="flex h-16 items-center justify-between gap-6">
           <Link href="/" aria-label="HomeStock" className="flex items-center">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/homestock-logo.svg" alt="HomeStock" className="h-7 w-auto" />
+            <img src="/homestock-logo.svg" alt="HomeStock" className="h-12 w-auto md:h-14" />
           </Link>
           <div className="flex items-center gap-5 text-sm">
             <Link href="/privacy" className="text-white/60 transition hover:text-white">Privacy</Link>

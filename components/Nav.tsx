@@ -4,15 +4,15 @@ import { Container } from './Container';
 export function Nav() {
   return (
     <nav className="absolute inset-x-0 top-0 z-10">
-      <Container className="flex h-16 items-center gap-8">
+      <Container className="flex h-20 items-center gap-4 md:gap-8">
         <Link href="/" aria-label="HomeStock" className="flex items-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/homestock-logo.svg" alt="HomeStock" className="h-7 w-auto" />
+          <img src="/homestock-logo.svg" alt="HomeStock" className="h-12 w-auto md:h-14" />
         </Link>
         <div className="flex-1" />
-        <a className="text-sm text-white/70 hover:text-white" href="#features">Features</a>
-        <a className="text-sm text-white/70 hover:text-white" href="#pricing">Pricing</a>
-        <a className="text-sm text-white/70 hover:text-white" href="#faq">FAQ</a>
+        <a className="hidden text-sm text-white/70 hover:text-white sm:inline" href="#features">Features</a>
+        <a className="hidden text-sm text-white/70 hover:text-white sm:inline" href="#pricing">Pricing</a>
+        <a className="hidden text-sm text-white/70 hover:text-white sm:inline" href="#faq">FAQ</a>
         <a
           href="#download"
           className="rounded-full bg-white px-4 py-2 text-[13px] font-semibold text-deep transition hover:bg-white/90"

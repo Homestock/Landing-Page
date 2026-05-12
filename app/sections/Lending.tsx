@@ -9,16 +9,16 @@ export function Lending() {
         <div className="blob" style={{ width: 800, height: 800, top: 0, right: -200, background: '#F59E0A', opacity: 0.30 }} />
       </Drift>
 
-      <Container className="relative grid grid-cols-12 items-center gap-12">
+      <Container className="relative grid grid-cols-12 items-center gap-10 md:gap-12">
         <Reveal className="col-span-12 md:col-span-7" stagger={0.10}>
           <R><Eyebrow label="LENDING TRACKER" dotColor="#F59E0A" /></R>
           <R>
-            <h2 className="mt-5 text-[56px] font-bold leading-[1.02] tracking-tighter3 md:text-[72px]">
+            <h2 className="mt-5 text-[44px] font-bold leading-[1.02] tracking-tighter3 sm:text-[56px] md:text-[72px]">
               You lent it.<br />We remember.
             </h2>
           </R>
           <R>
-            <p className="mt-6 max-w-md text-xl leading-[1.6] text-white/70">
+            <p className="mt-5 max-w-md text-lg leading-[1.6] text-white/70 md:mt-6 md:text-xl">
               Mark anything as lent with one tap. Add who borrowed it. Set a return date.
               <br /><br />
               When they bring it back, mark it returned — but the history stays. Forever.
@@ -27,7 +27,7 @@ export function Lending() {
           <R><p className="mt-6 text-[15px] font-medium text-amber">Because friendship shouldn&apos;t depend on remembering.</p></R>
         </Reveal>
 
-        <div className="col-span-12 md:col-span-5">
+        <div className="col-span-12 origin-top scale-[0.72] sm:scale-90 md:col-span-5 md:scale-100">
           <Reveal>
             <R>
               <Float amp={6} dur={6.5}>

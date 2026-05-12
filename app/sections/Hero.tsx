@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-deep" style={{ minHeight: 900 }}>
+    <section className="relative overflow-hidden bg-deep min-h-[820px] md:min-h-[900px]">
       <Nav />
 
       {/* Drifting ambient blobs */}
@@ -18,7 +18,7 @@ export function Hero() {
         <div className="blob" style={{ width: 500, height: 500, bottom: -100, left: -150, background: '#8C5CFF', opacity: 0.25 }} />
       </Drift>
 
-      <Container className="relative grid h-[900px] grid-cols-12 items-center gap-12 pt-20">
+      <Container className="relative grid grid-cols-12 items-center gap-8 pb-12 pt-28 md:h-[900px] md:gap-12 md:pb-0 md:pt-20">
         {/* Left: copy with staggered fade-up */}
         <Reveal className="col-span-12 md:col-span-7" stagger={0.10} delayChildren={0.05}>
           <R>
@@ -27,26 +27,26 @@ export function Hero() {
             </div>
           </R>
           <R>
-            <h1 className="mt-7 text-[64px] font-bold leading-[1.02] tracking-tighter3 md:text-[80px]">
+            <h1 className="mt-6 text-[48px] font-bold leading-[1.02] tracking-tighter3 sm:text-[56px] md:mt-7 md:text-[80px]">
               One photo.<br />
               Every detail.<br />
               Forever.
             </h1>
           </R>
           <R>
-            <p className="mt-7 max-w-md text-xl leading-[1.55] text-white/70">
+            <p className="mt-5 max-w-md text-lg leading-[1.55] text-white/70 md:mt-7 md:text-xl">
               Your home, indexed in seconds.<br />
               AI captures the rest.
             </p>
           </R>
           <R>
-            <div className="mt-8 flex items-center gap-5">
+            <div className="mt-6 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-5 md:mt-8">
               <motion.a
                 href="#download"
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 22 }}
-                className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 text-base font-semibold text-deep"
+                className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-[15px] font-semibold text-deep md:px-7 md:py-4 md:text-base"
               >
                 <span>↓</span>
                 <span>Download on the App Store</span>
@@ -63,11 +63,12 @@ export function Hero() {
           </R>
         </Reveal>
 
-        {/* Right: phone with floating chips */}
+        {/* Right: phone with floating chips. Outer wrapper scales the whole block down on mobile so chips don't overflow. */}
+        <div className="col-span-12 origin-top scale-[0.7] sm:scale-90 md:col-span-5 md:scale-100">
         <motion.div
-          className="relative col-span-12 md:col-span-5"
-          initial={{ opacity: 0, scale: 0.95, y: 30, filter: 'blur(20px)' }}
-          animate={{ opacity: 1, scale: 1, y: 0, filter: 'blur(0px)' }}
+          className="relative"
+          initial={{ opacity: 0, y: 30, filter: 'blur(20px)' }}
+          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
         >
           <Float amp={6} dur={6} className="relative mx-auto" style={{ width: 340 }}>
@@ -174,6 +175,7 @@ export function Hero() {
             </Float>
           </div>
         </motion.div>
+        </div>
       </Container>
     </section>
   );

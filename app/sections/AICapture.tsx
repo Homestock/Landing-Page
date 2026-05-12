@@ -10,16 +10,16 @@ export function AICapture() {
         <div className="blob" style={{ width: 700, height: 700, top: 50, right: -100, background: '#007AFF', opacity: 0.35 }} />
       </Drift>
 
-      <Container className="relative grid grid-cols-12 items-center gap-8">
+      <Container className="relative grid grid-cols-12 items-center gap-10 md:gap-8">
         <Reveal className="col-span-12 md:col-span-6" stagger={0.10}>
           <R><Eyebrow label="AI CAPTURE" /></R>
           <R>
-            <h2 className="mt-5 text-[56px] font-bold leading-[1.02] tracking-tighter3 md:text-[72px]">
+            <h2 className="mt-5 text-[44px] font-bold leading-[1.02] tracking-tighter3 sm:text-[56px] md:text-[72px]">
               Point. Shoot.<br />Done.
             </h2>
           </R>
           <R>
-            <p className="mt-6 max-w-md text-xl leading-[1.6] text-white/70">
+            <p className="mt-5 max-w-md text-lg leading-[1.6] text-white/70 md:mt-6 md:text-xl">
               Take a photo. Our AI fills in the name, category, and estimated price in 3 seconds.
               <br /><br />
               Edit if you like. Or just save and forget.
@@ -34,7 +34,7 @@ export function AICapture() {
           </R>
         </Reveal>
 
-        <div className="relative col-span-12 flex justify-center md:col-span-6 md:justify-end">
+        <div className="relative col-span-12 flex origin-top scale-[0.72] justify-center sm:scale-90 md:col-span-6 md:scale-100 md:justify-end">
           <Float amp={6} dur={6}>
             <PhoneMockup width={340} height={700} glow="rgba(0,122,255,0.4)">
               <div className="flex h-full flex-col px-4 pt-12">
