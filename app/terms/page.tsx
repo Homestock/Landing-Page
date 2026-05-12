@@ -9,7 +9,12 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <LegalLayout title="Terms of Use" effectiveDate="May 12, 2026">
+    <LegalLayout
+      title="Terms of Use"
+      effectiveDate="May 12, 2026"
+      siblingHref="/privacy"
+      siblingLabel="Read the Privacy Policy"
+    >
       <p>
         Welcome to HomeStock. These Terms of Use (&quot;Terms&quot;) form a legal agreement between you and HomeStock
         (&quot;HomeStock,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) for your use of the HomeStock iOS app, our website at{' '}

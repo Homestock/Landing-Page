@@ -9,7 +9,12 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <LegalLayout title="Privacy Policy" effectiveDate="May 12, 2026">
+    <LegalLayout
+      title="Privacy Policy"
+      effectiveDate="May 12, 2026"
+      siblingHref="/terms"
+      siblingLabel="Read the Terms of Use"
+    >
       <p>
         HomeStock (&quot;HomeStock,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) builds a personal inventory app for iPhone.
         This Privacy Policy explains what information we collect, why we collect it, how we use it, and the

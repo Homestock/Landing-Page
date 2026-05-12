@@ -1,5 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { Container } from '@/components/Container';
 import { Reveal, R, Drift } from '@/components/Motion';
 
@@ -30,10 +31,16 @@ export function FinalCTA() {
           <R>
             <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
               <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/homestock-logo.svg" alt="HomeStock" className="h-6 w-auto" />
-                <a className="text-[13px] text-white/50 hover:text-white" href="/privacy">Privacy Policy</a>
-                <a className="text-[13px] text-white/50 hover:text-white" href="/terms">Terms of Use</a>
+                <Link href="/" aria-label="HomeStock" className="flex items-center">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/homestock-logo.svg" alt="HomeStock" className="h-6 w-auto" />
+                </Link>
+                <Link className="text-[13px] text-white/50 transition hover:text-white" href="/privacy">
+                  Privacy Policy
+                </Link>
+                <Link className="text-[13px] text-white/50 transition hover:text-white" href="/terms">
+                  Terms of Use
+                </Link>
                 <a className="text-[13px] text-white/50 hover:text-white" href="mailto:support@homestock.app">support@homestock.app</a>
               </div>
               <span className="text-xs text-white/40">© 2026 HomeStock. Made for iPhone.</span>
