@@ -65,11 +65,10 @@ export function Hero() {
           <Float amp={6} dur={6} className="relative mx-auto" style={{ width: 'var(--phone-w)' }}>
             <div className="relative mx-auto" style={{ width: 'var(--phone-w)', height: 'var(--phone-h)' }}>
               <div
-                className="pointer-events-none absolute"
+                className="pointer-events-none absolute hidden md:block"
                 style={{
                   inset: -60,
                   background: 'radial-gradient(closest-side, rgba(0,122,255,0.45), transparent 70%)',
-                  filter: 'blur(40px)',
                 }}
               />
               <div
@@ -164,6 +163,27 @@ export function Hero() {
                 </div>
               </motion.div>
             </Float>
+          </div>
+
+          {/* Mobile-only chip strip — sits below the phone in flow (no overlap, no jank).
+              Shows the same three categories the floating chips reveal on desktop. */}
+          <div className="mt-6 grid grid-cols-3 gap-2 md:hidden">
+            {[
+              { color: '#007AFF', name: 'MacBook Pro', sub: 'Office' },
+              { color: '#8C5CFF', name: 'Sonos Arc', sub: 'Living Room' },
+              { color: '#F59E0A', name: 'KitchenAid', sub: 'Kitchen' },
+            ].map((c) => (
+              <div
+                key={c.name}
+                className="flex flex-col items-start gap-2 rounded-2xl bg-white/[0.04] p-3"
+              >
+                <div className="h-8 w-8 rounded-lg" style={{ background: c.color }} />
+                <div>
+                  <div className="text-[13px] font-semibold leading-tight text-white">{c.name}</div>
+                  <div className="mt-0.5 text-[11px] leading-tight text-white/50">{c.sub}</div>
+                </div>
+              </div>
+            ))}
           </div>
         </motion.div>
       </Container>

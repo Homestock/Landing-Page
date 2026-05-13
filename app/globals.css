@@ -13,19 +13,21 @@ html, body {
 * { box-sizing: border-box; }
 
 /* Soft radial blob — reusable absolute decoration.
-   Keep blur radius modest (mobile GPU is sensitive to filter:blur on large surfaces).
-   The radial-gradient background provides the soft falloff that the mask-image used to. */
+   Mobile: hidden entirely (filter:blur on a 600-900px element gets repainted on every
+   scroll frame, which is the #1 source of Hero scroll jank on iPhone). The dark deep
+   background reads clean without the ambient glow on small screens.
+   Desktop: keeps the heavy blur for the moody glow effect. */
 .blob {
-  position: absolute;
-  pointer-events: none;
-  border-radius: 9999px;
-  filter: blur(70px);
-  opacity: 0.4;
+  display: none;
 }
-/* Desktop can afford a heavier blur without jank */
 @media (min-width: 768px) {
   .blob {
+    display: block;
+    position: absolute;
+    pointer-events: none;
+    border-radius: 9999px;
     filter: blur(110px);
+    opacity: 0.4;
   }
 }
 

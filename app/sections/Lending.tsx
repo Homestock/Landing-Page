@@ -32,7 +32,7 @@ export function Lending() {
             <R>
               <Float amp={6} dur={6.5}>
                 <div className="relative mx-auto" style={{ width: 320, height: 660 }}>
-                  <div className="pointer-events-none absolute" style={{ inset: -40, background: 'radial-gradient(closest-side, rgba(245,158,10,0.35), transparent 70%)', filter: 'blur(40px)' }} />
+                  <div className="pointer-events-none absolute hidden md:block" style={{ inset: -40, background: 'radial-gradient(closest-side, rgba(245,158,10,0.35), transparent 70%)' }} />
                   <div className="relative h-full w-full" style={{ background: '#0A0A0C', borderRadius: 44, boxShadow: '0 40px 100px -20px rgba(245,158,10,0.30), 0 30px 80px -10px rgba(0,0,0,0.5)' }}>
                     <div className="absolute overflow-hidden bg-paper" style={{ inset: 8, borderRadius: 38 }}>
                       <div className="flex h-full flex-col px-5 pt-10">
