@@ -1,6 +1,6 @@
 'use client';
-import { motion, type HTMLMotionProps } from 'framer-motion';
-import { ReactNode, useEffect, useState } from 'react';
+import { motion, useInView, type HTMLMotionProps } from 'framer-motion';
+import { ReactNode, useEffect, useId, useRef, useState } from 'react';
 
 const EXPO_OUT = [0.16, 1, 0.3, 1] as const;
 
@@ -21,6 +21,38 @@ function useReducedAmbientMotion() {
   return reduce;
 }
 
+/**
+ * Persists "this element has already animated in this browser session" so the entry
+ * animation never plays twice — not on scroll-back, not on pull-to-refresh, not on
+ * navigating away and returning. Keyed per element via useId().
+ *
+ * The read is synchronous (lazy useState initializer) so the first paint after a
+ * reload already shows the final state — no hidden→visible flash. This produces an
+ * intentional hydration mismatch for revisited elements: harmless for our static
+ * export, since the only difference is inline transform/opacity values that get
+ * overwritten by client render immediately.
+ */
+function useOnceLatch(key: string) {
+  const [done, setDone] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    try {
+      return sessionStorage.getItem(`hs-anim:${key}`) === '1';
+    } catch {
+      return false;
+    }
+  });
+  const markDone = () => {
+    if (done) return;
+    setDone(true);
+    try {
+      sessionStorage.setItem(`hs-anim:${key}`, '1');
+    } catch {
+      /* private mode etc. — non-fatal, just means latch is in-memory only */
+    }
+  };
+  return [done, markDone] as const;
+}
+
 // Stagger container — wrap a section's content to make children fade-up in sequence
 export function Reveal({
   children,
@@ -35,16 +67,30 @@ export function Reveal({
   delayChildren?: number;
   as?: keyof JSX.IntrinsicElements;
 }) {
+  const id = useId();
+  const ref = useRef<HTMLDivElement | null>(null);
+  const inView = useInView(ref, { margin: '-80px', once: true });
+  const [alreadyDone, markDone] = useOnceLatch(id);
+
+  // Either freshly entered view OR latched from a previous session — both mean "show final state".
+  const shouldShow = alreadyDone || inView;
+
+  useEffect(() => {
+    if (inView && !alreadyDone) markDone();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [inView]);
+
   const MotionAs = motion[As as keyof typeof motion] as React.ComponentType<HTMLMotionProps<'div'>>;
   return (
     <MotionAs
+      ref={ref as any}
       className={className}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: '-80px' }}
+      initial={alreadyDone ? 'visible' : 'hidden'}
+      animate={shouldShow ? 'visible' : 'hidden'}
       variants={{
         hidden: {},
-        visible: { transition: { staggerChildren: stagger, delayChildren } },
+        // No transition delay when restoring from latch — we're already at the final state.
+        visible: { transition: { staggerChildren: alreadyDone ? 0 : stagger, delayChildren: alreadyDone ? 0 : delayChildren } },
       }}
     >
       {children}
