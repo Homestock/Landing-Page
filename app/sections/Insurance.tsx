@@ -15,7 +15,7 @@ export function Insurance() {
       <Drift className="absolute inset-0 pointer-events-none">
         <div className="blob" style={{ width: 600, height: 600, top: 100, left: -100, background: '#6B9E80', opacity: 0.20 }} />
       </Drift>
-      <Container className="relative grid grid-cols-12 items-center gap-8">
+      <Container className="relative grid grid-cols-1 items-center gap-y-10 md:grid-cols-12 md:gap-8">
         <Reveal className="col-span-12 flex justify-center md:col-span-6">
           <R>
             <div className="w-[380px] max-w-full rounded-2xl border border-white/8 bg-[#1A1A1F] p-7 shadow-[0_30px_80px_-10px_rgba(0,0,0,0.5)]">

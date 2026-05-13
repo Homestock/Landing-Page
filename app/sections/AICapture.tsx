@@ -10,7 +10,7 @@ export function AICapture() {
         <div className="blob" style={{ width: 700, height: 700, top: 50, right: -100, background: '#007AFF', opacity: 0.35 }} />
       </Drift>
 
-      <Container className="relative grid grid-cols-12 items-center gap-10 md:gap-8">
+      <Container className="relative grid grid-cols-1 items-center gap-y-10 md:grid-cols-12 md:gap-8">
         <Reveal className="col-span-12 md:col-span-6" stagger={0.10}>
           <R><Eyebrow label="AI CAPTURE" /></R>
           <R>

@@ -16,7 +16,7 @@ export function Rooms() {
         <div className="blob" style={{ width: 800, height: 800, top: 50, left: -200, background: '#007AFF', opacity: 0.30 }} />
       </Drift>
 
-      <Container className="relative grid grid-cols-12 items-center gap-8">
+      <Container className="relative grid grid-cols-1 items-center gap-y-10 md:grid-cols-12 md:gap-8">
         <Reveal className="col-span-12 flex justify-center md:col-span-6">
           <R>
             <div className="w-[420px] max-w-full rounded-3xl border border-white/8 bg-[#1A1A1F] p-7 shadow-[0_30px_80px_-10px_rgba(0,0,0,0.5)]">
@@ -41,9 +41,9 @@ export function Rooms() {
 
         <Reveal className="col-span-12 md:col-span-6 md:pl-12" stagger={0.10}>
           <R><Eyebrow label="ORGANIZATION" /></R>
-          <R><h2 className="mt-5 text-[56px] font-bold leading-[1.02] tracking-tighter3 md:text-[64px]">Your home,<br />in folders.</h2></R>
+          <R><h2 className="mt-5 text-[44px] font-bold leading-[1.02] tracking-tighter3 sm:text-[56px] md:text-[64px]">Your home,<br />in folders.</h2></R>
           <R>
-            <p className="mt-6 max-w-md text-lg leading-[1.6] text-white/70">
+            <p className="mt-5 max-w-md text-base leading-[1.6] text-white/70 md:mt-6 md:text-lg">
               Group by room. Group by closet. Group by &quot;stuff in the attic I&apos;ll deal with later.&quot;
               <br /><br />
               Two levels deep — like Apple Notes. As simple as it sounds.

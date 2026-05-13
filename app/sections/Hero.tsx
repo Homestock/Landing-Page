@@ -18,7 +18,7 @@ export function Hero() {
         <div className="blob" style={{ width: 500, height: 500, bottom: -100, left: -150, background: '#8C5CFF', opacity: 0.25 }} />
       </Drift>
 
-      <Container className="relative grid grid-cols-12 items-center gap-8 pb-12 pt-28 md:h-[900px] md:gap-12 md:pb-0 md:pt-20">
+      <Container className="relative grid grid-cols-1 items-center gap-y-10 pb-12 pt-28 md:h-[900px] md:grid-cols-12 md:gap-12 md:pb-0 md:pt-20">
         {/* Left: copy with staggered fade-up */}
         <Reveal className="col-span-12 md:col-span-7" stagger={0.10} delayChildren={0.05}>
           <R>
@@ -50,14 +50,6 @@ export function Hero() {
               >
                 <span>↓</span>
                 <span>Download on the App Store</span>
-              </motion.a>
-              <motion.a
-                href="#features"
-                whileHover={{ x: 4 }}
-                transition={{ type: 'spring', stiffness: 300 }}
-                className="text-[15px] font-medium text-white/85 hover:text-white"
-              >
-                Watch demo&nbsp;&nbsp;→
               </motion.a>
             </div>
           </R>

@@ -9,7 +9,7 @@ export function Lending() {
         <div className="blob" style={{ width: 800, height: 800, top: 0, right: -200, background: '#F59E0A', opacity: 0.30 }} />
       </Drift>
 
-      <Container className="relative grid grid-cols-12 items-center gap-10 md:gap-12">
+      <Container className="relative grid grid-cols-1 items-center gap-y-10 md:grid-cols-12 md:gap-12">
         <Reveal className="col-span-12 md:col-span-7" stagger={0.10}>
           <R><Eyebrow label="LENDING TRACKER" dotColor="#F59E0A" /></R>
           <R>

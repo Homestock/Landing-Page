@@ -14,12 +14,12 @@ export function MovingBoxes() {
       <Drift className="absolute inset-0 pointer-events-none">
         <div className="blob" style={{ width: 700, height: 700, top: 50, right: -100, background: '#F59E0A', opacity: 0.20 }} />
       </Drift>
-      <Container className="relative grid grid-cols-12 items-center gap-8">
+      <Container className="relative grid grid-cols-1 items-center gap-y-10 md:grid-cols-12 md:gap-8">
         <Reveal className="col-span-12 md:col-span-6" stagger={0.10}>
           <R><Eyebrow label="MOVING BOXES" dotColor="#F59E0A" /></R>
-          <R><h2 className="mt-5 text-[48px] font-bold leading-[1.02] tracking-tighter3 md:text-[64px]">Pack smart.<br />Unpack faster.</h2></R>
+          <R><h2 className="mt-5 text-[40px] font-bold leading-[1.02] tracking-tighter3 sm:text-[48px] md:text-[64px]">Pack smart.<br />Unpack faster.</h2></R>
           <R>
-            <p className="mt-6 max-w-md text-lg leading-[1.6] text-white/70">
+            <p className="mt-5 max-w-md text-base leading-[1.6] text-white/70 md:mt-6 md:text-lg">
               Label every box. Put items inside. Seal it. When you arrive, every box knows what room it&apos;s going to.
               <br /><br />
               No more &quot;the kitchen stuff is in box 14 somewhere.&quot;
