@@ -35,6 +35,8 @@ export function AICapture() {
         </Reveal>
 
         <div className="relative col-span-12 flex origin-top scale-[0.72] justify-center sm:scale-90 md:col-span-6 md:scale-100 md:justify-end">
+          {/* Inner wrapper hugs the phone so the chip can be positioned relative to the phone's left edge */}
+          <div className="relative">
           <Float amp={6} dur={6}>
             <PhoneMockup width={340} height={700} glow="rgba(0,122,255,0.4)">
               <div className="flex h-full flex-col px-4 pt-12">
@@ -98,9 +100,9 @@ export function AICapture() {
             </PhoneMockup>
           </Float>
 
-          {/* Floating AI captured chip — overlaid to the left of the phone */}
-          <Float amp={10} dur={5} delay={0.5} className="absolute" style={{ left: -20, top: 220 }}>
-            <div className="rounded-2xl bg-white px-4 py-3 shadow-[0_24px_60px_rgba(0,0,0,0.55)]" style={{ transform: 'rotate(-3deg)' }}>
+          {/* Floating AI captured chip — overlaps the phone's lower-left, hidden on mobile to avoid covering the form */}
+          <Float amp={10} dur={5} delay={0.5} className="absolute hidden md:block" style={{ left: -90, top: 260 }}>
+            <div className="rounded-2xl bg-white px-4 py-3 shadow-[0_24px_60px_rgba(0,0,0,0.55)]" style={{ transform: 'rotate(-4deg)' }}>
               <div className="mb-1.5 flex items-center gap-2">
                 <div className="h-4 w-4 rounded bg-violet" />
                 <span className="text-[10px] font-semibold tracking-[0.14em] text-violet">AI CAPTURED · 2.4s</span>
@@ -109,6 +111,7 @@ export function AICapture() {
               <div className="text-xs text-deep/55">Electronics · Office · $2,499</div>
             </div>
           </Float>
+          </div>
         </div>
       </Container>
     </section>
