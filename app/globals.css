@@ -13,16 +13,20 @@ html, body {
 * { box-sizing: border-box; }
 
 /* Soft radial blob — reusable absolute decoration.
-   Heavy blur + radial mask = the blob fades to nothing before it ever reaches the section edge,
-   so when overflow:hidden clips it there is no visible cut line. */
+   Keep blur radius modest (mobile GPU is sensitive to filter:blur on large surfaces).
+   The radial-gradient background provides the soft falloff that the mask-image used to. */
 .blob {
   position: absolute;
   pointer-events: none;
   border-radius: 9999px;
-  filter: blur(120px);
+  filter: blur(70px);
   opacity: 0.4;
-  -webkit-mask-image: radial-gradient(closest-side, #000 35%, transparent 100%);
-          mask-image: radial-gradient(closest-side, #000 35%, transparent 100%);
+}
+/* Desktop can afford a heavier blur without jank */
+@media (min-width: 768px) {
+  .blob {
+    filter: blur(110px);
+  }
 }
 
 /* Card pattern for dark cards */

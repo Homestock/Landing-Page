@@ -1,8 +1,25 @@
 'use client';
 import { motion, type HTMLMotionProps } from 'framer-motion';
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 
 const EXPO_OUT = [0.16, 1, 0.3, 1] as const;
+
+/**
+ * Returns true on touch/small viewports or when the user prefers reduced motion.
+ * Continuous transform animations (Float perpetual bob, Drift slow drift on
+ * heavily-blurred blobs) are GPU-expensive on mobile — we skip them there.
+ */
+function useReducedAmbientMotion() {
+  const [reduce, setReduce] = useState(false);
+  useEffect(() => {
+    const mql = window.matchMedia('(max-width: 767px), (prefers-reduced-motion: reduce)');
+    const update = () => setReduce(mql.matches);
+    update();
+    mql.addEventListener('change', update);
+    return () => mql.removeEventListener('change', update);
+  }, []);
+  return reduce;
+}
 
 // Stagger container — wrap a section's content to make children fade-up in sequence
 export function Reveal({
@@ -68,7 +85,7 @@ export function R({
   );
 }
 
-// Perpetual gentle floating — for chips
+// Perpetual gentle floating — for chips. Becomes a static div on mobile / reduced-motion.
 export function Float({
   children,
   className = '',
@@ -84,6 +101,14 @@ export function Float({
   delay?: number;
   style?: React.CSSProperties;
 }) {
+  const reduce = useReducedAmbientMotion();
+  if (reduce) {
+    return (
+      <div className={className} style={style}>
+        {children}
+      </div>
+    );
+  }
   return (
     <motion.div
       className={className}
@@ -96,7 +121,8 @@ export function Float({
   );
 }
 
-// Drift — for ambient blobs
+// Drift — for ambient blobs. Static on mobile / reduced-motion (constant transform on a
+// 120px-blurred element is the #1 mobile-GPU offender on this page).
 export function Drift({
   children,
   className = '',
@@ -110,6 +136,14 @@ export function Drift({
   dur?: number;
   style?: React.CSSProperties;
 }) {
+  const reduce = useReducedAmbientMotion();
+  if (reduce) {
+    return (
+      <div className={className} style={style}>
+        {children}
+      </div>
+    );
+  }
   return (
     <motion.div
       className={className}

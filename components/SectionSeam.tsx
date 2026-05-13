@@ -1,9 +1,10 @@
 /**
- * SectionSeam — a thin 1-pixel-tall element with an absolutely positioned, heavily blurred
+ * SectionSeam — a thin 1-pixel-tall element with an absolutely positioned, blurred
  * radial bridge that pokes ~120-160px into both neighbour sections, smoothing the colour
- * transition between them. Sections still keep overflow-hidden (no scroll regressions);
- * the seam itself is rendered between sections in the page flow and is NOT inside either,
- * so it never gets clipped.
+ * transition between them.
+ *
+ * Hidden on mobile (`hidden md:block`) — section colour transitions are barely visible
+ * on a phone-width viewport, and rendering 11 large filter:blur layers tanks scroll FPS.
  */
 export function SectionSeam({
   from,
@@ -17,7 +18,7 @@ export function SectionSeam({
   return (
     <div
       aria-hidden
-      className="relative h-px w-full"
+      className="relative hidden h-px w-full md:block"
       style={{ overflow: 'visible' }}
     >
       <div
@@ -27,7 +28,7 @@ export function SectionSeam({
           width: '110%',
           height: 320,
           background: `linear-gradient(to bottom, ${from} 0%, transparent 50%, ${to} 100%)`,
-          filter: 'blur(60px)',
+          filter: 'blur(40px)',
           opacity: intensity,
         }}
       />
