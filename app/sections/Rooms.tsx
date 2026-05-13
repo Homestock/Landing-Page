@@ -1,46 +1,13 @@
+import { Sofa, UtensilsCrossed, BedDouble, Laptop } from 'lucide-react';
 import { Container } from '@/components/Container';
 import { Eyebrow } from '@/components/Eyebrow';
 import { Reveal, R, Drift } from '@/components/Motion';
 
-const STROKE = { stroke: 'white', strokeWidth: 1.8, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const, fill: 'none' };
-
-const SofaIcon = () => (
-  <svg viewBox="0 0 24 24" width="22" height="22" {...STROKE}>
-    <path d="M4 14v5M20 14v5" />
-    <path d="M3 14a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v2h10v-2a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v3a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-3Z" />
-    <path d="M6 12V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3" />
-  </svg>
-);
-
-const ForkKnifeIcon = () => (
-  <svg viewBox="0 0 24 24" width="22" height="22" {...STROKE}>
-    <path d="M8 4v6a2 2 0 0 1-2 2h0a2 2 0 0 1-2-2V4" />
-    <path d="M6 12v8" />
-    <path d="M16 4c-2 0-3 2-3 5s1 4 3 4v7" />
-  </svg>
-);
-
-const BedIcon = () => (
-  <svg viewBox="0 0 24 24" width="22" height="22" {...STROKE}>
-    <path d="M3 18v-7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v7" />
-    <path d="M3 16h18" />
-    <path d="M3 20v-2M21 20v-2" />
-    <rect x="6" y="11" width="6" height="3" rx="1" />
-  </svg>
-);
-
-const LaptopIcon = () => (
-  <svg viewBox="0 0 24 24" width="22" height="22" {...STROKE}>
-    <rect x="5" y="6" width="14" height="9" rx="1.2" />
-    <path d="M3 18h18l-1 1H4l-1-1Z" />
-  </svg>
-);
-
 const rooms = [
-  { name: 'Living Room', count: '14 items', color: '#007AFF', icon: <SofaIcon /> },
-  { name: 'Kitchen', count: '21 items', color: '#F59E0A', icon: <ForkKnifeIcon /> },
-  { name: 'Bedroom', count: '8 items', color: '#8C5CFF', icon: <BedIcon /> },
-  { name: 'Office', count: '4 items · 1 folder', color: '#6B9E80', icon: <LaptopIcon /> },
+  { name: 'Living Room', count: '14 items', color: '#007AFF', Icon: Sofa },
+  { name: 'Kitchen', count: '21 items', color: '#F59E0A', Icon: UtensilsCrossed },
+  { name: 'Bedroom', count: '8 items', color: '#8C5CFF', Icon: BedDouble },
+  { name: 'Office', count: '4 items · 1 folder', color: '#6B9E80', Icon: Laptop },
 ];
 
 export function Rooms() {
@@ -64,7 +31,7 @@ export function Rooms() {
                         className="flex h-10 w-10 items-center justify-center rounded-[10px]"
                         style={{ background: r.color }}
                       >
-                        {r.icon}
+                        <r.Icon size={22} strokeWidth={1.8} className="text-white" />
                       </div>
                       <span className="text-[15px] font-semibold text-white">{r.name}</span>
                       <div className="flex-1 border-b border-dotted border-white/15" />
