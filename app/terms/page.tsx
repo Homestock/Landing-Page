@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { LegalLayout } from '@/components/LegalLayout';
 
 export const metadata: Metadata = {
@@ -101,7 +102,7 @@ export default function TermsPage() {
         transmit, back up, and display Your Content solely for the purpose of providing the Service to you and
         the household members you choose to share with. This license ends when you delete Your Content or your
         account (subject to a short retention window for backups as described in our{' '}
-        <a href="/privacy">Privacy Policy</a>).
+        <Link href="/privacy">Privacy Policy</Link>).
       </p>
       <p>
         You are responsible for Your Content. Do not upload anything that infringes third-party rights or
@@ -123,7 +124,7 @@ export default function TermsPage() {
           legal proof of ownership without your independent verification.
         </li>
         <li>
-          Photos sent to AI are transmitted as described in our <a href="/privacy">Privacy Policy</a>.
+          Photos sent to AI are transmitted as described in our <Link href="/privacy">Privacy Policy</Link>.
         </li>
         <li>
           We may rate-limit or disable AI features for accounts that abuse them (for example, sending content

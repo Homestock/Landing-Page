@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import Link from 'next/link';
 import { Container } from './Container';
+import { Logo } from './Logo';
 
 export function LegalLayout({
   title,
@@ -20,8 +21,7 @@ export function LegalLayout({
       <nav className="border-b border-white/8">
         <Container className="flex h-16 items-center justify-between gap-6">
           <Link href="/" aria-label="HomeStock" className="flex items-center">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/homestock-logo.svg" alt="HomeStock" className="h-12 w-auto md:h-14" />
+            <Logo className="h-12 w-auto md:h-14" />
           </Link>
           <div className="flex items-center gap-5 text-sm">
             <Link href="/privacy" className="text-white/60 transition hover:text-white">Privacy</Link>

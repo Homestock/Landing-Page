@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Container } from '@/components/Container';
+import { Logo } from '@/components/Logo';
 import { Reveal, R, Drift } from '@/components/Motion';
 
 export function FinalCTA() {
@@ -32,8 +33,7 @@ export function FinalCTA() {
             <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
               <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
                 <Link href="/" aria-label="HomeStock" className="flex items-center">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/homestock-logo.svg" alt="HomeStock" className="h-12 w-auto md:h-14" />
+                  <Logo className="h-12 w-auto md:h-14" />
                 </Link>
                 <Link className="text-[13px] text-white/50 transition hover:text-white" href="/privacy">
                   Privacy Policy
