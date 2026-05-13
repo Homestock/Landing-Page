@@ -6,7 +6,7 @@ import { Reveal, R, Drift } from '@/components/Motion';
 
 export function FinalCTA() {
   return (
-    <section id="download" className="relative overflow-x-clip bg-deep py-28">
+    <section id="download" className="relative overflow-hidden bg-deep py-28">
       <Drift className="absolute inset-0 pointer-events-none" range={50} dur={20}>
         <div className="blob" style={{ width: 900, height: 900, top: -150, left: '50%', transform: 'translateX(-50%)', background: '#007AFF', opacity: 0.30 }} />
       </Drift>

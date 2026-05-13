@@ -10,7 +10,7 @@ const points = [
 
 export function Privacy() {
   return (
-    <section className="relative overflow-x-clip bg-deep py-28">
+    <section className="relative overflow-hidden bg-deep py-28">
       <Container>
         <Reveal className="text-center" stagger={0.10}>
           <R><div className="inline-flex"><Eyebrow label="PRIVACY" dotColor="#6B9E80" /></div></R>

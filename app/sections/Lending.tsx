@@ -4,7 +4,7 @@ import { Reveal, R, Float, Drift } from '@/components/Motion';
 
 export function Lending() {
   return (
-    <section className="relative overflow-x-clip bg-deep py-32">
+    <section className="relative overflow-hidden bg-deep py-32">
       <Drift className="absolute inset-0 pointer-events-none">
         <div className="blob" style={{ width: 800, height: 800, top: 0, right: -200, background: '#F59E0A', opacity: 0.30 }} />
       </Drift>

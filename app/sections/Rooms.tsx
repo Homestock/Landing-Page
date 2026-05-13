@@ -12,7 +12,7 @@ const rooms = [
 
 export function Rooms() {
   return (
-    <section className="relative overflow-x-clip bg-deep py-32">
+    <section className="relative overflow-hidden bg-deep py-32">
       <Drift className="absolute inset-0 pointer-events-none">
         <div className="blob" style={{ width: 800, height: 800, top: 50, left: -200, background: '#007AFF', opacity: 0.30 }} />
       </Drift>

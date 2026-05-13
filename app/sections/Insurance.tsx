@@ -11,7 +11,7 @@ const items = [
 
 export function Insurance() {
   return (
-    <section className="relative overflow-x-clip bg-deep py-32">
+    <section className="relative overflow-hidden bg-deep py-32">
       <Drift className="absolute inset-0 pointer-events-none">
         <div className="blob" style={{ width: 600, height: 600, top: 100, left: -100, background: '#6B9E80', opacity: 0.20 }} />
       </Drift>
