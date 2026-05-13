@@ -55,16 +55,15 @@ export function Hero() {
           </R>
         </Reveal>
 
-        {/* Right: phone with floating chips. Outer wrapper scales the whole block down on mobile so chips don't overflow. */}
-        <div className="col-span-12 origin-top scale-[0.7] sm:scale-90 md:col-span-5 md:scale-100">
+        {/* Right: phone with floating chips. .hero-phone-frame defines responsive --phone-w / --phone-h via globals.css. */}
         <motion.div
-          className="relative"
+          className="hero-phone-frame relative col-span-12 md:col-span-5"
           initial={{ opacity: 0, y: 30, filter: 'blur(20px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
         >
-          <Float amp={6} dur={6} className="relative mx-auto" style={{ width: 340 }}>
-            <div className="relative mx-auto" style={{ width: 340, height: 700 }}>
+          <Float amp={6} dur={6} className="relative mx-auto" style={{ width: 'var(--phone-w)' }}>
+            <div className="relative mx-auto" style={{ width: 'var(--phone-w)', height: 'var(--phone-h)' }}>
               <div
                 className="pointer-events-none absolute"
                 style={{
@@ -77,12 +76,12 @@ export function Hero() {
                 className="relative h-full w-full"
                 style={{
                   background: '#0A0A0C',
-                  borderRadius: 48,
+                  borderRadius: 'calc(var(--phone-w) * 0.14)',
                   boxShadow: '0 40px 100px -10px rgba(0,122,255,0.30), 0 30px 80px -10px rgba(0,0,0,0.5)',
                   transform: 'rotate(-3deg)',
                 }}
               >
-                <div className="absolute overflow-hidden bg-paper" style={{ inset: 8, borderRadius: 42 }}>
+                <div className="absolute overflow-hidden bg-paper" style={{ inset: 8, borderRadius: 'calc(var(--phone-w) * 0.12)' }}>
                   <div className="flex h-full flex-col p-5 pt-12">
                     <div className="mb-4">
                       <div className="h-5 w-24 rounded bg-deep" />
@@ -113,13 +112,13 @@ export function Hero() {
                     </div>
                   </div>
                 </div>
-                <div className="absolute rounded-[20px] bg-black" style={{ left: (340 - 110) / 2, top: 14, width: 110, height: 30 }} />
+                <div className="absolute left-1/2 -translate-x-1/2 rounded-[20px] bg-black" style={{ top: 14, width: '32%', height: 30 }} />
               </div>
             </div>
           </Float>
 
-          {/* Floating chips — same width box as the phone, centered with mx-auto, so left/right offsets are relative to the phone */}
-          <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2" style={{ width: 340, height: 700 }}>
+          {/* Floating chips — hidden on mobile (would crowd the small phone); shown md+ around the phone */}
+          <div className="pointer-events-none absolute left-1/2 top-0 hidden -translate-x-1/2 md:block" style={{ width: 'var(--phone-w)', height: 'var(--phone-h)' }}>
             <Float amp={10} dur={5} delay={0.2} className="pointer-events-auto absolute" style={{ left: -140, top: 180 }}>
               <motion.div
                 initial={{ opacity: 0, x: -30, rotate: -10, filter: 'blur(16px)' }}
@@ -167,7 +166,6 @@ export function Hero() {
             </Float>
           </div>
         </motion.div>
-        </div>
       </Container>
     </section>
   );

@@ -28,6 +28,19 @@ html, body {
   border-radius: 24px;
 }
 
+/* Hero phone frame: responsive width/height via CSS vars.
+   Mobile gets a smaller phone (≤ 70vw) so chips don't crowd; desktop locks to 340 × 700. */
+.hero-phone-frame {
+  --phone-w: min(260px, 70vw);
+  --phone-h: calc(var(--phone-w) * 2.06);
+}
+@media (min-width: 768px) {
+  .hero-phone-frame {
+    --phone-w: 340px;
+    --phone-h: 700px;
+  }
+}
+
 /* Long-form legal pages */
 .legal-prose h2 {
   margin-top: 2.5rem;
