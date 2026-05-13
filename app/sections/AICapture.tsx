@@ -5,7 +5,7 @@ import { Reveal, R, Float, Drift } from '@/components/Motion';
 
 export function AICapture() {
   return (
-    <section className="relative overflow-hidden bg-deep py-32">
+    <section className="relative overflow-x-clip bg-deep py-32">
       <Drift className="absolute inset-0 pointer-events-none" range={30}>
         <div className="blob" style={{ width: 700, height: 700, top: 50, right: -100, background: '#007AFF', opacity: 0.35 }} />
       </Drift>

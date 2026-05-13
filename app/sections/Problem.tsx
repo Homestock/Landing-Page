@@ -10,7 +10,7 @@ const stats = [
 
 export function Problem() {
   return (
-    <section className="relative overflow-hidden bg-deep py-32">
+    <section className="relative overflow-x-clip bg-deep py-32">
       <Container>
         <Reveal className="text-center" stagger={0.10}>
           <R><div className="inline-flex"><Eyebrow label="WHY HOMESTOCK" dotColor="#948F99" /></div></R>

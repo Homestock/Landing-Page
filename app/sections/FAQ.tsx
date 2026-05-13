@@ -17,7 +17,7 @@ const qa = [
 export function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section id="faq" className="relative overflow-hidden bg-deep py-28">
+    <section id="faq" className="relative overflow-x-clip bg-deep py-28">
       <Container>
         <Reveal className="text-center" stagger={0.10}>
           <R><div className="inline-flex"><Eyebrow label="FAQ" dotColor="#948F99" /></div></R>

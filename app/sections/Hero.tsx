@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-deep min-h-[820px] md:min-h-[900px]">
+    <section className="relative overflow-x-clip bg-deep min-h-[820px] md:min-h-[900px]">
       <Nav />
 
       {/* Drifting ambient blobs */}

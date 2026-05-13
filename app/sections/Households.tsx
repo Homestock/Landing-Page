@@ -36,7 +36,7 @@ function MiniHouseholdScreen({ initial, name, role, accent }: { initial: string;
 
 export function Households() {
   return (
-    <section className="relative overflow-hidden bg-deep py-24 md:py-28">
+    <section className="relative overflow-x-clip bg-deep py-24 md:py-28">
       <Drift className="absolute inset-0 pointer-events-none">
         <div className="blob" style={{ width: 900, height: 900, top: -100, left: '25%', background: '#8C5CFF', opacity: 0.25 }} />
       </Drift>

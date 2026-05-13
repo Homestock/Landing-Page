@@ -14,7 +14,7 @@ const proFeatures = [
 
 export function Pricing() {
   return (
-    <section id="pricing" className="relative overflow-hidden bg-deep py-32">
+    <section id="pricing" className="relative overflow-x-clip bg-deep py-32">
       <Container>
         <Reveal className="text-center" stagger={0.10}>
           <R><div className="inline-flex"><Eyebrow label="PRICING" dotColor="#948F99" /></div></R>
