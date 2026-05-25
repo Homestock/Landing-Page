@@ -65,7 +65,7 @@ tailwind.config.ts        Design tokens (deep / paper / accent / amber / sage / 
 
 ## Deploy
 
-Designed for Vercel. Push to `main` → auto-deploy.
+`npm run build` produces a static `out/` folder — deploy it to any static host.
 
 ## Roadmap
 
