@@ -1,11 +1,13 @@
+import { Package, ChevronRight } from 'lucide-react';
 import { Container } from '@/components/Container';
 import { Eyebrow } from '@/components/Eyebrow';
 import { Reveal, R, Drift } from '@/components/Motion';
 
 const boxes = [
-  { name: 'Kitchen Box 1', sub: '14 items · Sealed', color: '#6B9E80', sealed: true },
-  { name: 'Living Room', sub: '8 items · Open', color: '#F59E0A', sealed: false },
-  { name: 'Bedroom Essentials', sub: '11 items · Sealed', color: '#007AFF', sealed: true },
+  { name: 'Kitchen essentials',  room: 'Kitchen',     count: 14 },
+  { name: 'Winter clothes',      room: 'Bedroom',     count: 8 },
+  { name: 'Office supplies',     room: 'Home Office', count: 12 },
+  { name: 'Holiday decorations', room: 'Garage',      count: 15 },
 ];
 
 export function MovingBoxes() {
@@ -26,18 +28,20 @@ export function MovingBoxes() {
             </p>
           </R>
         </Reveal>
-        <Reveal className="col-span-12 space-y-3.5 md:col-span-6" stagger={0.10} delayChildren={0.2}>
+
+        {/* iOS-style list of box cards: white pill with tinted accent box-icon, name + room/count, chevron */}
+        <Reveal className="col-span-12 space-y-3 md:col-span-6" stagger={0.08} delayChildren={0.2}>
           {boxes.map((b) => (
             <R key={b.name}>
-              <div className="flex items-center gap-3.5 rounded-2xl border border-white/8 bg-[#1A1A1F] p-4 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.4)]">
-                <div className="h-14 w-14 rounded-xl" style={{ background: b.color }} />
-                <div className="flex-1">
-                  <div className="text-base font-semibold text-white">{b.name}</div>
-                  <div className="text-xs text-white/55">{b.sub}</div>
+              <div className="flex items-center gap-3.5 rounded-2xl bg-white p-3.5 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.45)]">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[12px] bg-accent/10">
+                  <Package size={24} className="text-accent" strokeWidth={1.8} />
                 </div>
-                {b.sealed && (
-                  <span className="rounded-md bg-sage/20 px-2.5 py-1 text-[10px] font-semibold tracking-wider text-sage">✓ SEALED</span>
-                )}
+                <div className="flex-1">
+                  <div className="text-[16px] font-bold leading-tight text-deep">{b.name}</div>
+                  <div className="mt-1 text-[13px] text-deep/55">{b.room} · {b.count} items</div>
+                </div>
+                <ChevronRight size={18} className="text-deep/30" strokeWidth={2.2} />
               </div>
             </R>
           ))}

@@ -54,8 +54,8 @@ export function LegalLayout({
             </Link>
             <div className="text-[13px] text-white/40">
               Questions?{' '}
-              <a className="text-white/70 hover:text-white" href="mailto:support@homestock.app">
-                support@homestock.app
+              <a className="text-white/70 hover:text-white" href="mailto:support@home-stock.io">
+                support@home-stock.io
               </a>
             </div>
           </div>

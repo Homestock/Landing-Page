@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://homestock.app'),
+  metadataBase: new URL('https://home-stock.io'),
   title: 'HomeStock — Inventory without the work.',
   description:
     'Take a photo of anything you own. AI fills in name, category, and price. Built for iPhone.',

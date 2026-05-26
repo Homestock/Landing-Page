@@ -20,9 +20,9 @@ export function Insurance() {
           <R>
             <div className="w-[380px] max-w-full rounded-2xl border border-white/8 bg-[#1A1A1F] p-7 shadow-[0_30px_80px_-10px_rgba(0,0,0,0.5)]">
               <div className="flex items-center gap-3">
-                <div className="h-10 w-8 rounded bg-rose" />
+                <div className="h-10 w-8 rounded bg-sage" />
                 <div>
-                  <div className="text-sm font-semibold text-white">home-inventory.pdf</div>
+                  <div className="text-sm font-semibold text-white">home-inventory.xlsx</div>
                   <div className="text-[11px] text-white/50">47 items · $34,219 · Apr 2026</div>
                 </div>
               </div>
@@ -48,7 +48,7 @@ export function Insurance() {
           <R><h2 className="mt-5 text-[48px] font-bold leading-[1.02] tracking-tighter3 md:text-[64px]">The receipt<br />you&apos;ll never lose.</h2></R>
           <R>
             <p className="mt-6 max-w-md text-lg leading-[1.6] text-white/70">
-              Photos, prices, dates, serial numbers. Export everything as PDF, ready for any insurance form.
+              Photos, prices, dates, serial numbers — one clean Excel spreadsheet, ready for any insurance form.
               <br /><br />
               Warranty expiring in 30 days? You&apos;ll know before they do.
             </p>

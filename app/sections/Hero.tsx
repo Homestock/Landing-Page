@@ -42,7 +42,9 @@ export function Hero() {
           <R>
             <div className="mt-6 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-5 md:mt-8">
               <motion.a
-                href="#download"
+                href="https://apps.apple.com/us/app/home-stock-house-inventory/id6764231947"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 22 }}
@@ -71,113 +73,92 @@ export function Hero() {
                   background: 'radial-gradient(closest-side, rgba(0,122,255,0.45), transparent 70%)',
                 }}
               />
-              <div
-                className="relative h-full w-full"
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/hero-phone.png"
+                alt="HomeStock — rooms in My Home"
+                width={1127}
+                height={2303}
+                className="relative h-full w-full select-none"
+                draggable={false}
                 style={{
-                  background: '#0A0A0C',
-                  borderRadius: 'calc(var(--phone-w) * 0.14)',
-                  boxShadow: '0 40px 100px -10px rgba(0,122,255,0.30), 0 30px 80px -10px rgba(0,0,0,0.5)',
+                  objectFit: 'contain',
+                  // drop-shadow (not box-shadow) so the glow hugs the phone silhouette, not the bounding box.
+                  filter: 'drop-shadow(0 40px 60px rgba(0,122,255,0.30)) drop-shadow(0 30px 50px rgba(0,0,0,0.5))',
                   transform: 'rotate(-3deg)',
                 }}
-              >
-                <div className="absolute overflow-hidden bg-paper" style={{ inset: 8, borderRadius: 'calc(var(--phone-w) * 0.12)' }}>
-                  <div className="flex h-full flex-col p-5 pt-12">
-                    <div className="mb-4">
-                      <div className="h-5 w-24 rounded bg-deep" />
-                      <div className="mt-1.5 h-3 w-32 rounded bg-deep/30" />
-                    </div>
-                    <div className="flex-1 space-y-2.5">
-                      {[
-                        { c: '#007AFF', w: 70 },
-                        { c: '#F59E0A', w: 80 },
-                        { c: '#8C5CFF', w: 65 },
-                        { c: '#6B9E80', w: 75 },
-                        { c: '#ED8C8C', w: 60 },
-                      ].map((r, i) => (
-                        <motion.div
-                          key={i}
-                          className="flex items-center gap-3 rounded-xl bg-[#F2F2F0] p-2.5"
-                          initial={{ opacity: 0, x: -10, filter: 'blur(8px)' }}
-                          animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
-                          transition={{ duration: 0.6, delay: 0.6 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                        >
-                          <div className="h-9 w-9 rounded-lg" style={{ background: r.c }} />
-                          <div className="flex-1">
-                            <div className="h-2.5 rounded bg-deep/60" style={{ width: `${r.w}%` }} />
-                            <div className="mt-1.5 h-2 w-12 rounded bg-deep/20" />
-                          </div>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-                <div className="absolute left-1/2 -translate-x-1/2 rounded-[20px] bg-black" style={{ top: 14, width: '32%', height: 30 }} />
-              </div>
+              />
             </div>
           </Float>
 
           {/* Floating chips — hidden on mobile (would crowd the small phone); shown md+ around the phone */}
           <div className="pointer-events-none absolute left-1/2 top-0 hidden -translate-x-1/2 md:block" style={{ width: 'var(--phone-w)', height: 'var(--phone-h)' }}>
-            <Float amp={10} dur={5} delay={0.2} className="pointer-events-auto absolute" style={{ left: -140, top: 180 }}>
+            {/* Top-left — peeks just below "My Home" header, beside the "need attention" banner */}
+            <Float amp={10} dur={5} delay={0.2} className="pointer-events-auto absolute" style={{ left: -190, top: 210 }}>
               <motion.div
-                initial={{ opacity: 0, x: -30, rotate: -10, filter: 'blur(16px)' }}
-                animate={{ opacity: 1, x: 0, rotate: -4, filter: 'blur(0px)' }}
+                initial={{ opacity: 0, x: -30, rotate: 10, filter: 'blur(16px)' }}
+                animate={{ opacity: 1, x: 0, rotate: 4, filter: 'blur(0px)' }}
                 transition={{ duration: 1.0, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
                 className="flex items-center gap-3.5 rounded-2xl bg-white px-5 py-4 shadow-[0_24px_60px_rgba(0,0,0,0.50)]"
               >
-                <div className="h-12 w-12 rounded-xl bg-accent" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/coffee-machine.png" alt="" className="h-12 w-12 rounded-xl object-contain" draggable={false} />
                 <div>
-                  <div className="text-[15px] font-semibold leading-tight text-deep">MacBook Pro</div>
-                  <div className="mt-1 text-[12px] text-deep/55">Office · $2,499</div>
+                  <div className="text-[15px] font-semibold leading-tight text-deep">Espresso Machine</div>
+                  <div className="mt-1 text-[12px] text-deep/55">Kitchen · $799</div>
                 </div>
               </motion.div>
             </Float>
 
-            <Float amp={8} dur={5.5} delay={0.5} className="pointer-events-auto absolute" style={{ left: -110, top: 400 }}>
+            {/* Middle-right — between row 1 and row 2 of the room grid */}
+            <Float amp={8} dur={5.5} delay={0.5} className="pointer-events-auto absolute" style={{ right: -160, top: 320 }}>
               <motion.div
-                initial={{ opacity: 0, x: -30, rotate: 8, filter: 'blur(16px)' }}
-                animate={{ opacity: 1, x: 0, rotate: 2, filter: 'blur(0px)' }}
-                transition={{ duration: 1.0, delay: 1.1, ease: [0.16, 1, 0.3, 1] }}
-                className="rounded-2xl bg-white px-4 py-3 shadow-[0_24px_60px_rgba(0,0,0,0.50)]"
-              >
-                <div className="flex items-center gap-2">
-                  <span className="block h-3 w-3 rounded bg-violet" />
-                  <span className="text-[10px] font-bold tracking-[0.14em] text-violet">AI · 2.4s</span>
-                </div>
-                <div className="mt-1.5 text-[14px] font-semibold leading-tight text-deep">Sonos Arc</div>
-                <div className="mt-0.5 text-[12px] text-deep/55">Living Room · $899</div>
-              </motion.div>
-            </Float>
-
-            <Float amp={12} dur={6} delay={0.8} className="pointer-events-auto absolute" style={{ right: -140, top: 480 }}>
-              <motion.div
-                initial={{ opacity: 0, x: 30, rotate: 12, filter: 'blur(16px)' }}
+                initial={{ opacity: 0, x: 30, rotate: 10, filter: 'blur(16px)' }}
                 animate={{ opacity: 1, x: 0, rotate: 4, filter: 'blur(0px)' }}
+                transition={{ duration: 1.0, delay: 1.1, ease: [0.16, 1, 0.3, 1] }}
+                className="flex items-center gap-3.5 rounded-2xl bg-white px-5 py-4 shadow-[0_24px_60px_rgba(0,0,0,0.50)]"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/monstera.png" alt="" className="h-12 w-12 rounded-xl object-contain" draggable={false} />
+                <div>
+                  <div className="text-[15px] font-semibold leading-tight text-deep">Monstera Deliciosa</div>
+                  <div className="mt-1 text-[12px] text-deep/55">Living Room · $89</div>
+                </div>
+              </motion.div>
+            </Float>
+
+            {/* Bottom-left — peeks beside the Bedroom row, above the tab bar */}
+            <Float amp={12} dur={6} delay={0.8} className="pointer-events-auto absolute" style={{ left: -170, top: 540 }}>
+              <motion.div
+                initial={{ opacity: 0, x: -30, rotate: -12, filter: 'blur(16px)' }}
+                animate={{ opacity: 1, x: 0, rotate: -3, filter: 'blur(0px)' }}
                 transition={{ duration: 1.0, delay: 1.3, ease: [0.16, 1, 0.3, 1] }}
                 className="flex items-center gap-3.5 rounded-2xl bg-white px-5 py-4 shadow-[0_24px_60px_rgba(0,0,0,0.50)]"
               >
-                <div className="h-12 w-12 rounded-xl bg-amber" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/hair-dryer.png" alt="" className="h-12 w-12 rounded-xl object-contain" draggable={false} />
                 <div>
-                  <div className="text-[15px] font-semibold leading-tight text-deep">KitchenAid Mixer</div>
-                  <div className="mt-1 text-[12px] text-deep/55">Kitchen · $449</div>
+                  <div className="text-[15px] font-semibold leading-tight text-deep">Pro Styler 3000</div>
+                  <div className="mt-1 text-[12px] text-deep/55">Bathroom · $129</div>
                 </div>
               </motion.div>
             </Float>
           </div>
 
           {/* Mobile-only chip strip — sits below the phone in flow (no overlap, no jank).
-              Shows the same three categories the floating chips reveal on desktop. */}
+              Shows the same three items the floating chips reveal on desktop. */}
           <div className="mt-6 grid grid-cols-3 gap-2 md:hidden">
             {[
-              { color: '#007AFF', name: 'MacBook Pro', sub: 'Office' },
-              { color: '#8C5CFF', name: 'Sonos Arc', sub: 'Living Room' },
-              { color: '#F59E0A', name: 'KitchenAid', sub: 'Kitchen' },
+              { img: '/coffee-machine.png', name: 'Espresso Machine', sub: 'Kitchen' },
+              { img: '/monstera.png', name: 'Monstera', sub: 'Living Room' },
+              { img: '/hair-dryer.png', name: 'Pro Styler', sub: 'Bathroom' },
             ].map((c) => (
               <div
                 key={c.name}
                 className="flex flex-col items-start gap-2 rounded-2xl bg-white/[0.04] p-3"
               >
-                <div className="h-8 w-8 rounded-lg" style={{ background: c.color }} />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={c.img} alt="" className="h-8 w-8 rounded-lg bg-white object-contain" draggable={false} />
                 <div>
                   <div className="text-[13px] font-semibold leading-tight text-white">{c.name}</div>
                   <div className="mt-0.5 text-[11px] leading-tight text-white/50">{c.sub}</div>

@@ -17,7 +17,9 @@ export function FinalCTA() {
           <R><p className="mt-6 text-xl text-white/70">Start indexing it. One photo at a time.</p></R>
           <R>
             <motion.a
-              href="https://apps.apple.com/"
+              href="https://apps.apple.com/us/app/home-stock-house-inventory/id6764231947"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
               transition={{ type: 'spring', stiffness: 400, damping: 22 }}
@@ -41,7 +43,7 @@ export function FinalCTA() {
                 <Link className="text-[13px] text-white/50 transition hover:text-white" href="/terms">
                   Terms of Use
                 </Link>
-                <a className="text-[13px] text-white/50 hover:text-white" href="mailto:support@homestock.app">support@homestock.app</a>
+                <a className="text-[13px] text-white/50 hover:text-white" href="mailto:support@home-stock.io">support@home-stock.io</a>
               </div>
               <span className="text-xs text-white/40">© 2026 HomeStock. Made for iPhone.</span>
             </div>

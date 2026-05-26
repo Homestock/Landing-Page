@@ -31,40 +31,28 @@ export function Lending() {
           <Reveal>
             <R>
               <Float amp={6} dur={6.5}>
-                <div className="relative mx-auto" style={{ width: 320, height: 660 }}>
-                  <div className="pointer-events-none absolute hidden md:block" style={{ inset: -40, background: 'radial-gradient(closest-side, rgba(245,158,10,0.35), transparent 70%)' }} />
-                  <div className="relative h-full w-full" style={{ background: '#0A0A0C', borderRadius: 44, boxShadow: '0 40px 100px -20px rgba(245,158,10,0.30), 0 30px 80px -10px rgba(0,0,0,0.5)' }}>
-                    <div className="absolute overflow-hidden bg-paper" style={{ inset: 8, borderRadius: 38 }}>
-                      <div className="flex h-full flex-col px-5 pt-10">
-                        <div className="text-[12px] text-deep/55">‹ &nbsp;Living Room</div>
-                        <div className="mt-3 rounded-2xl" style={{ width: '100%', height: 180, background: 'linear-gradient(135deg, #DCDEE3 0%, #C0C3CA 100%)' }} />
-                        <div className="mt-3.5 text-[18px] font-bold text-deep">MacBook Pro 16&quot;</div>
-                        <div className="text-[12px] text-deep/55">Electronics · Office · $2,499</div>
-                        <div className="mt-2.5 inline-flex w-fit items-center gap-1 rounded-full bg-amber px-2 py-1">
-                          <span className="block h-1 w-1 rounded-full bg-white" />
-                          <span className="text-[9px] font-bold tracking-[0.1em] text-white">LENT</span>
-                        </div>
-                        <div className="mt-3 flex items-center gap-3 rounded-xl bg-[#EDEDE9] p-2.5">
-                          <div className="h-8 w-8 rounded-full bg-violet" />
-                          <div>
-                            <div className="text-[13px] font-semibold text-deep">Sasha</div>
-                            <div className="text-[10px] text-deep/55">Borrowed Mar 15</div>
-                          </div>
-                        </div>
-                        <button className="mt-3 rounded-full bg-deep py-2.5 text-[12px] font-semibold text-white">✓ &nbsp;Mark as returned</button>
-                        <div className="mt-3 flex items-center justify-center gap-5 text-[11px] font-medium text-accent">
-                          <span>Edit</span><span>Share</span><span>History</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="absolute rounded-[20px] bg-black" style={{ left: (320 - 110) / 2, top: 14, width: 110, height: 30 }} />
-                  </div>
-                  <Float amp={8} dur={5} delay={0.4} className="absolute z-10" style={{ right: -60, top: 80 }}>
+                <div className="relative mx-auto" style={{ width: 320 }}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/lending.png"
+                    alt="HomeStock — Lending screen with items currently lent out"
+                    width={1127}
+                    height={2442}
+                    draggable={false}
+                    className="block w-full select-none"
+                    style={{
+                      // amber glow hugs the phone silhouette, matching this section's accent.
+                      filter: 'drop-shadow(0 40px 100px rgba(245,158,10,0.30)) drop-shadow(0 20px 60px rgba(0,0,0,0.50))',
+                    }}
+                  />
+
+                  {/* Callout chip — highlights one of the lent items, peeks off the phone's right edge */}
+                  <Float amp={8} dur={5} delay={0.4} className="absolute z-10" style={{ right: -60, top: 150 }}>
                     <div className="flex items-center gap-2.5 rounded-2xl bg-white px-3.5 py-2.5 shadow-[0_16px_40px_rgba(0,0,0,0.4)]">
-                      <div className="h-7 w-7 rounded-md bg-amber" />
+                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-amber text-[12px] font-bold text-white">M</div>
                       <div>
-                        <div className="text-[12px] font-semibold text-deep">Lent to Sasha</div>
-                        <div className="text-[10px] text-deep/55">since Mar 15</div>
+                        <div className="text-[12px] font-semibold text-deep">Lent to Mike</div>
+                        <div className="text-[10px] text-deep/55">Camera Sony · 4 days out</div>
                       </div>
                     </div>
                   </Float>

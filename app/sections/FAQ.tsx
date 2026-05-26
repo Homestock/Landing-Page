@@ -10,7 +10,7 @@ const qa = [
   ['Can I use it without an account?', 'Yes. Start anonymously — sign in with Apple later if you want to back up or share.'],
   ['What happens to my data if I cancel Pro?', 'Your data stays. You revert to the Free tier limits for new items.'],
   ["Is the AI on-device or cloud?", "Cloud (Gemini). One photo round-trip is ~3 seconds. We don't store the photo on AI servers."],
-  ['Can I export everything?', 'Yes — JSON, CSV, and PDF inventory reports from Settings.'],
+  ['Can I export everything?', 'Yes — your full inventory exports as an Excel (.xlsx) file from Settings.'],
   ['Can I share with my family?', 'On Pro — invite up to 10 members per house with owner / editor / viewer roles.'],
 ];
 

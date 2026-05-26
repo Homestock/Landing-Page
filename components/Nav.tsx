@@ -14,7 +14,9 @@ export function Nav() {
         <a className="hidden text-sm text-white/70 hover:text-white sm:inline" href="#pricing">Pricing</a>
         <a className="hidden text-sm text-white/70 hover:text-white sm:inline" href="#faq">FAQ</a>
         <a
-          href="#download"
+          href="https://apps.apple.com/us/app/home-stock-house-inventory/id6764231947"
+          target="_blank"
+          rel="noopener noreferrer"
           className="rounded-full bg-white px-4 py-2 text-[13px] font-semibold text-deep transition hover:bg-white/90"
         >
           Download

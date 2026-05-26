@@ -1,13 +1,15 @@
-import { Sofa, UtensilsCrossed, BedDouble, Laptop } from 'lucide-react';
+import { Sofa, UtensilsCrossed, Bath, Monitor, BedDouble, Car } from 'lucide-react';
 import { Container } from '@/components/Container';
 import { Eyebrow } from '@/components/Eyebrow';
 import { Reveal, R, Drift } from '@/components/Motion';
 
 const rooms = [
-  { name: 'Living Room', count: '14 items', color: '#007AFF', Icon: Sofa },
-  { name: 'Kitchen', count: '21 items', color: '#F59E0A', Icon: UtensilsCrossed },
-  { name: 'Bedroom', count: '8 items', color: '#8C5CFF', Icon: BedDouble },
-  { name: 'Office', count: '4 items · 1 folder', color: '#6B9E80', Icon: Laptop },
+  { name: 'Kitchen',     count: '21 items', value: '12.1K$', color: '#8C5CFF', Icon: UtensilsCrossed },
+  { name: 'Living Room', count: '14 items', value: '18.3K$', color: '#6B9E80', Icon: Sofa },
+  { name: 'Bathroom',    count: '8 items',  value: '2.4K$',  color: '#F59E0A', Icon: Bath },
+  { name: 'Office',      count: '11 items', value: '14.8K$', color: '#FF4B8A', Icon: Monitor },
+  { name: 'Bedroom',     count: '18 items', value: '8.2K$',  color: '#FF8FA3', Icon: BedDouble },
+  { name: 'Garage',      count: '9 items',  value: '8.7K$',  color: '#007AFF', Icon: Car },
 ];
 
 export function Rooms() {
@@ -20,23 +22,24 @@ export function Rooms() {
       <Container className="relative grid grid-cols-1 items-center gap-y-10 md:grid-cols-12 md:gap-8">
         <Reveal className="col-span-12 flex justify-center md:col-span-6">
           <R>
-            <div className="w-[420px] max-w-full rounded-3xl border border-white/8 bg-[#1A1A1F] p-7 shadow-[0_30px_80px_-10px_rgba(0,0,0,0.5)]">
-              <h3 className="text-2xl font-bold text-white">My Home</h3>
-              <p className="mt-1 text-[13px] text-white/50">4 rooms · 47 items</p>
-              <Reveal className="mt-4 space-y-2" stagger={0.07} delayChildren={0.15}>
+            {/* Light card holding only the room grid — header, warning banner and Add Room stripped. */}
+            <div className="w-[420px] max-w-full rounded-[32px] bg-[#F2F2F0] p-5 shadow-[0_40px_100px_-10px_rgba(0,0,0,0.6),0_20px_50px_-10px_rgba(0,122,255,0.15)]">
+              <Reveal className="grid grid-cols-2 gap-3" stagger={0.05} delayChildren={0.15}>
                 {rooms.map((r) => (
                   <R key={r.name}>
-                    <div className="flex items-center gap-3 rounded-2xl bg-white/[0.04] p-3">
+                    {/* aspect-square gives each room card a clean 1:1 tile; icon top, stats anchored to the bottom. */}
+                    <div className="flex aspect-square flex-col rounded-2xl bg-white p-4">
                       <div
-                        className="flex h-10 w-10 items-center justify-center rounded-[10px]"
+                        className="flex h-11 w-11 items-center justify-center rounded-[12px]"
                         style={{ background: r.color }}
                       >
-                        <r.Icon size={22} strokeWidth={1.8} className="text-white" />
+                        <r.Icon size={24} strokeWidth={2} className="text-white" />
                       </div>
-                      <span className="text-[15px] font-semibold text-white">{r.name}</span>
-                      <div className="flex-1 border-b border-dotted border-white/15" />
-                      <span className="text-[13px] text-white/55">{r.count}</span>
-                      <span className="text-lg text-white/40">›</span>
+                      <div className="mt-auto">
+                        <div className="text-[15px] font-bold leading-tight text-deep">{r.name}</div>
+                        <div className="mt-0.5 text-[11px] text-deep/55">{r.count}</div>
+                        <div className="mt-1.5 text-[15px] font-bold text-deep">{r.value}</div>
+                      </div>
                     </div>
                   </R>
                 ))}

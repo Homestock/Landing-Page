@@ -1,6 +1,5 @@
 import { Container } from '@/components/Container';
 import { Eyebrow } from '@/components/Eyebrow';
-import { PhoneMockup } from '@/components/PhoneMockup';
 import { Reveal, R, Float, Drift } from '@/components/Motion';
 
 export function AICapture() {
@@ -34,83 +33,65 @@ export function AICapture() {
           </R>
         </Reveal>
 
-        <div className="relative col-span-12 flex origin-top scale-[0.72] justify-center sm:scale-90 md:col-span-6 md:scale-100 md:justify-end">
-          {/* Inner wrapper hugs the phone so the chip can be positioned relative to the phone's left edge */}
-          <div className="relative">
-          <Float amp={6} dur={6}>
-            <PhoneMockup width={340} height={700} glow="rgba(0,122,255,0.4)">
-              <div className="flex h-full flex-col px-4 pt-12">
-                {/* Top nav */}
-                <div className="flex items-center justify-between text-[12px]">
-                  <span className="text-deep/55">‹ Cancel</span>
-                  <span className="font-semibold text-deep">New Item</span>
-                  <span className="font-semibold text-accent">Save</span>
-                </div>
+        <div className="relative col-span-12 flex origin-top scale-[0.72] justify-center sm:scale-90 md:col-span-6 md:scale-100 md:justify-start">
+          {/* Inner wrapper hugs the phone so the chip can be positioned relative to the phone's left edge.
+              md:translate-x nudges the whole composition (phone + chips) slightly right so the left chip
+              doesn't crowd the text column. */}
+          <div className="relative md:translate-x-16" style={{ width: 340 }}>
+            <Float amp={6} dur={6}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/ai-suggestion.png"
+                alt="HomeStock — AI suggestion for a captured photo"
+                width={1127}
+                height={2303}
+                draggable={false}
+                className="block w-full select-none"
+                style={{
+                  // drop-shadow hugs the rounded phone silhouette instead of the bounding box.
+                  filter: 'drop-shadow(0 40px 120px rgba(0,122,255,0.40)) drop-shadow(0 20px 60px rgba(0,0,0,0.50))',
+                }}
+              />
+            </Float>
 
-                {/* Photo */}
-                <div className="relative mt-3 overflow-hidden rounded-2xl" style={{ width: '100%', height: 170, background: 'linear-gradient(135deg, #2C2E36 0%, #45474F 60%, #5A5D67 100%)' }}>
-                  {/* MacBook silhouette */}
-                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" style={{ width: 130, height: 80, background: '#1A1B20', borderRadius: 6, boxShadow: '0 6px 20px rgba(0,0,0,0.4)' }} />
-                  <div className="absolute left-1/2 -translate-x-1/2" style={{ bottom: 32, width: 145, height: 5, background: '#A8AAB2', borderRadius: 2 }} />
-                  {/* AI scanning indicator */}
-                  <div className="absolute right-2.5 top-2.5 flex items-center gap-1.5 rounded-full bg-black/55 px-2 py-1 backdrop-blur">
-                    <span className="block h-1.5 w-1.5 animate-pulse rounded-full bg-violet" />
-                    <span className="text-[9px] font-semibold tracking-wider text-white">AI · 2.4s</span>
+            {/* Floating AI captured chip — a *different* item the AI cataloged, to show range.
+                Hidden on mobile to avoid covering the form. */}
+            <Float amp={10} dur={5} delay={0.5} className="absolute hidden md:block" style={{ left: -130, top: 600 }}>
+              <div
+                className="flex items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-[0_24px_60px_rgba(0,0,0,0.55)]"
+                style={{ transform: 'rotate(-4deg)' }}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/vacuum.png" alt="" className="h-12 w-12 rounded-xl object-contain" draggable={false} />
+                <div>
+                  <div className="mb-1 flex items-center gap-1.5">
+                    <span className="block h-2.5 w-2.5 rounded bg-violet" />
+                    <span className="text-[9px] font-bold tracking-[0.14em] text-violet">AI CAPTURED · 2.4s</span>
                   </div>
-                </div>
-
-                {/* AI suggestion banner */}
-                <div className="mt-3 flex items-center gap-2 rounded-xl bg-violet/10 px-3 py-2">
-                  <div className="h-4 w-4 rounded bg-violet" />
-                  <span className="text-[11px] font-semibold text-violet">AI filled 4 fields for you</span>
-                </div>
-
-                {/* Form fields */}
-                <div className="mt-3 space-y-2.5">
-                  <div>
-                    <div className="text-[9px] font-semibold uppercase tracking-wider text-deep/40">Name</div>
-                    <div className="mt-0.5 text-[14px] font-semibold text-deep">MacBook Pro 16&quot;</div>
-                  </div>
-                  <div className="h-px bg-deep/8" />
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <div className="text-[9px] font-semibold uppercase tracking-wider text-deep/40">Category</div>
-                      <div className="mt-0.5 text-[13px] font-medium text-deep">Electronics</div>
-                    </div>
-                    <div className="rounded-full bg-accent/10 px-2 py-0.5 text-[9px] font-bold tracking-wider text-accent">AUTO</div>
-                  </div>
-                  <div className="h-px bg-deep/8" />
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <div className="text-[9px] font-semibold uppercase tracking-wider text-deep/40">Room</div>
-                      <div className="mt-0.5 text-[13px] font-medium text-deep">Office</div>
-                    </div>
-                    <div className="rounded-full bg-accent/10 px-2 py-0.5 text-[9px] font-bold tracking-wider text-accent">AUTO</div>
-                  </div>
-                  <div className="h-px bg-deep/8" />
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <div className="text-[9px] font-semibold uppercase tracking-wider text-deep/40">Estimated price</div>
-                      <div className="mt-0.5 text-[13px] font-medium text-deep">$2,499</div>
-                    </div>
-                    <div className="rounded-full bg-accent/10 px-2 py-0.5 text-[9px] font-bold tracking-wider text-accent">AUTO</div>
-                  </div>
+                  <div className="text-[14px] font-semibold leading-tight text-deep">Cyclonix X5</div>
+                  <div className="mt-0.5 text-[11px] text-deep/55">Appliances · Storage · $399</div>
                 </div>
               </div>
-            </PhoneMockup>
-          </Float>
+            </Float>
 
-          {/* Floating AI captured chip — overlaps the phone's lower-left, hidden on mobile to avoid covering the form */}
-          <Float amp={10} dur={5} delay={0.5} className="absolute hidden md:block" style={{ left: -90, top: 260 }}>
-            <div className="rounded-2xl bg-white px-4 py-3 shadow-[0_24px_60px_rgba(0,0,0,0.55)]" style={{ transform: 'rotate(-4deg)' }}>
-              <div className="mb-1.5 flex items-center gap-2">
-                <div className="h-4 w-4 rounded bg-violet" />
-                <span className="text-[10px] font-semibold tracking-[0.14em] text-violet">AI CAPTURED · 2.4s</span>
+            {/* Second floating chip — drill, peeks off the phone's upper-right with a counter-tilt */}
+            <Float amp={9} dur={5.5} delay={0.7} className="absolute hidden md:block" style={{ right: -140, top: 140 }}>
+              <div
+                className="flex items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-[0_24px_60px_rgba(0,0,0,0.55)]"
+                style={{ transform: 'rotate(4deg)' }}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/drill.png" alt="" className="h-12 w-12 rounded-xl object-contain" draggable={false} />
+                <div>
+                  <div className="mb-1 flex items-center gap-1.5">
+                    <span className="block h-2.5 w-2.5 rounded bg-violet" />
+                    <span className="text-[9px] font-bold tracking-[0.14em] text-violet">AI CAPTURED · 1.8s</span>
+                  </div>
+                  <div className="text-[14px] font-semibold leading-tight text-deep">DeWalt 20V Max</div>
+                  <div className="mt-0.5 text-[11px] text-deep/55">Tools · Garage · $229</div>
+                </div>
               </div>
-              <div className="text-base font-semibold text-deep">MacBook Pro 16&quot;</div>
-              <div className="text-xs text-deep/55">Electronics · Office · $2,499</div>
-            </div>
-          </Float>
+            </Float>
           </div>
         </div>
       </Container>
